@@ -6,8 +6,7 @@ set nocompatible
 filetype off
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'preservim/nerdtree'
 
 let g:deoplete#enable_at_startup = 1
@@ -20,7 +19,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'github/copilot.vim'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-
+Plug 'rcarriga/nvim-notify'
+Plug 'weizheheng/ror.nvim'
 call plug#end()
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
@@ -30,8 +30,8 @@ nnoremap <silent> <S-f> :GFiles<CR>
 nnoremap <silent> <S-c> :Rg<CR>
 nnoremap <silent> <expr> <F6> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 nnoremap <S-W> <C-W>
-
 nnoremap <silent> <S-b> :Buffers<CR>
 
+autocmd VimEnter * :Files
 
-colorscheme gruvbox
+colorscheme catppuccin
